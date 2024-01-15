@@ -9,10 +9,41 @@ function Book(title, author, pages, readStatus) {
   }
 }
 
+function addToLibrary(book) {
+  myLibrary.push(book);
+}
+
 const myLibrary = [];
 
-
-
-
 let jjk = new Book('JJK', 'Gege', '69', true);
-console.log(jjk.getInfo());
+let lotr = new Book('Lord of the Rings', 'JRR Tolkien', '570', false);
+// console.log(jjk.getInfo());
+
+addToLibrary(jjk);
+addToLibrary(lotr);
+console.log(myLibrary);
+
+
+
+
+
+
+
+// RESPONSIVE SECTION--------------------------------
+const bookLibrary = document.querySelector('.contentContainer');
+
+bookLibrary.addEventListener('mouseover', (e) => {
+  const target = e.target;
+
+  if (target.className === 'book') {
+    target.style.backgroundColor = 'lightgreen';
+  }
+});
+bookLibrary.addEventListener('mouseout', (e) => {
+  const target = e.target;
+
+  if (target.className === 'book') {
+    target.style.backgroundColor = 'white';
+  }
+});
+
