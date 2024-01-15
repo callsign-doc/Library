@@ -1,39 +1,25 @@
-/* UNIVERSAL------------------- */
+/* UNIVERSAL-------------------- */
 div {
     border: 1px solid black;
 }
 
 
 
-
+/*MAIN CONTAINER-----------------  */
 .mainContainer {
     display: grid;
-    grid-template: 0.5fr 0.2fr 1fr/ repeat(3, 1fr);
+    grid-template-rows: 0.2fr 1fr 0.1fr;
 
     height: 100vh;
 }
 
-.headerContainer {
-    grid-column: 1/ span 3;
-}
 
-.buttonContainer {
-    grid-column: 1/ span 3;
-}
-
-
-
-
-/* CONTENT CONTAINER */
+/* CONTENT CONTAINER----------------- */
 .contentContainer {
-    grid-column: 1/ span 3;
+    display: grid;
+    grid-template-columns: 0.8fr 0.4fr;
 }
+/* BOOK LIBRARY */
 
-.book {
-    display: flex;
-    flex-direction: column;
-}
-#bookImg {
-    height: 90%;
-    width: auto;
-}
+/* BOOK DISPLAY */
+
