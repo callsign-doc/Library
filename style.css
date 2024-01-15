@@ -22,18 +22,28 @@ body {
 /* CONTENT CONTAINER----------------- */
 .contentContainer {
     display: grid;
-    grid-template-columns: 0.8fr 0.4fr;
+    grid-template-columns: 0.7fr 0.4fr;
 }
 /* BOOK LIBRARY */
 .bookLibrary {
-    overflow: auto;
+    /* overflow: auto;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
-    /* grid-template-rows: repeat(auto-fit, minmax(20%, 0.5fr)); */
+
     grid-auto-flow: row;
 
-    gap: 10px; /* Adjust the gap between items as needed */
+    gap: 10px; */
+
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
 }
+.book {
+    flex: 1;
+    min-height: 50%;
+    min-width: 30%;
+}
+
 /* BOOK DISPLAY */
 
