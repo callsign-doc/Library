@@ -50,9 +50,11 @@ body {
     overflow-y: scroll;
 }
 .book {
-    /* flex: 1; */
+    flex: 1;
     min-height: 50%;
-    min-width: 30%;
+    max-width: 33.33%;
+    /* min-width: 30%; */
+    /* width: 32%; */
     padding: 10px;
 
     display: flex;
