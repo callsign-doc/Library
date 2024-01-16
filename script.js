@@ -13,6 +13,10 @@ function addToLibrary(book) {
   myLibrary.push(book);
 }
 
+function displayBooks(array) {
+  
+}
+
 const myLibrary = [];
 
 let jjk = new Book('JJK', 'Gege', '69', true);
@@ -47,3 +51,41 @@ bookLibrary.addEventListener('mouseout', (e) => {
   }
 });
 
+
+function createBook() {
+  const book = document.createElement('div');
+  book.classList.add('book');
+
+  const bookInfo = document.createElement('div');
+  bookInfo.classList.add('bookInfo');
+
+  const title = document.createElement('div');
+  title.classList.add('boldText');
+  title.id = 'title';
+  title.textContent = 'Dummy book';
+
+  const author = document.createElement('div');
+  author.id = 'author';
+
+  const pages = document.createElement('div');
+  pages.classList.add('pages');
+
+  const read = document.createElement('div');
+  read.id = 'readStatus';
+
+  // Append title, author, pages, and read to bookInfo
+  bookInfo.appendChild(title);
+  bookInfo.appendChild(author);
+  bookInfo.appendChild(pages);
+  bookInfo.appendChild(read);
+
+  // Now, you have a structure where all elements are children of bookInfo
+
+  book.appendChild(bookInfo);
+
+  bookLibrary.append(book);
+}
+
+createBook();
+createBook();
+createBook();
