@@ -34,7 +34,7 @@ console.log(myLibrary);
 
 
 // RESPONSIVE SECTION--------------------------------
-const bookLibrary = document.querySelector('.contentContainer');
+const bookLibrary = document.querySelector('.bookLibrary');
 
 bookLibrary.addEventListener('mouseover', (e) => {
   const target = e.target;
@@ -55,6 +55,20 @@ bookLibrary.addEventListener('mouseout', (e) => {
 function createBook() {
   const book = document.createElement('div');
   book.classList.add('book');
+
+  // Create the bookImgContainer element
+  const bookImgContainer = document.createElement('div');
+  bookImgContainer.classList.add('bookImgContainer');
+
+  // Create the img element
+  const img = document.createElement('img');
+  img.id = 'bookImg';
+  img.src = 'assets/jjkCover.jpeg';
+  img.alt = '';
+
+  // Append the img element to the bookImgContainer
+  bookImgContainer.appendChild(img);
+  book.append(bookImgContainer);
 
   const bookInfo = document.createElement('div');
   bookInfo.classList.add('bookInfo');
@@ -86,6 +100,68 @@ function createBook() {
   bookLibrary.append(book);
 }
 
-createBook();
-createBook();
-createBook();
+// createBook();
+// createBook();
+// createBook();
+
+function createBookElement(titleText, authorText, pagesText, readStatusText) {
+  // Create the main book container
+  const book = document.createElement('div');
+  book.classList.add('book');
+
+  // Create the bookImgContainer element
+  const bookImgContainer = document.createElement('div');
+  bookImgContainer.classList.add('bookImgContainer');
+
+  // Create the img element
+  const img = document.createElement('img');
+  img.id = 'bookImg';
+  img.src = 'assets/jjkCover.jpeg';
+  img.alt = '';
+
+  // Append the img element to the bookImgContainer
+  bookImgContainer.appendChild(img);
+
+  // Create the bookInfo container
+  const bookInfo = document.createElement('div');
+  bookInfo.classList.add('bookInfo');
+
+  // Create the title element
+  const title = document.createElement('div');
+  title.classList.add('boldText');
+  title.id = 'title';
+  title.textContent = titleText;
+
+  // Create the author element
+  const author = document.createElement('div');
+  author.id = 'author';
+  author.textContent = authorText;
+
+  // Create the pages element
+  const pages = document.createElement('div');
+  pages.classList.add('pages');
+  pages.textContent = pagesText;
+
+  // Create the readStatus element
+  const readStatus = document.createElement('div');
+  readStatus.id = 'readStatus';
+  readStatus.textContent = readStatusText;
+
+  // Append title, author, pages, and readStatus to bookInfo
+  bookInfo.appendChild(title);
+  bookInfo.appendChild(author);
+  bookInfo.appendChild(pages);
+  bookInfo.appendChild(readStatus);
+
+  // Append bookImgContainer and bookInfo to the book
+  book.appendChild(bookImgContainer);
+  book.appendChild(bookInfo);
+
+  bookLibrary.append(book);
+
+  return book;
+}
+
+createBookElement('jjk', 'gege', '78', 'true');
+createBookElement('jjk', 'gege', '78', 'true');
+createBookElement('jjk', 'gege', '78', 'true');
