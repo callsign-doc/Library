@@ -10,9 +10,6 @@ function Book(title, author, pages, cover, readStatus) {
   }
 }
 
-function addToLibrary(book) {
-  myLibrary.push(book);
-}
 
 // function displayBooks(array) {
   
@@ -53,57 +50,11 @@ bookLibrary.addEventListener('mouseout', (e) => {
 });
 
 
-function createBook() {
-  const book = document.createElement('div');
-  book.classList.add('book');
 
-  // Create the bookImgContainer element
-  const bookImgContainer = document.createElement('div');
-  bookImgContainer.classList.add('bookImgContainer');
-
-  // Create the img element
-  const img = document.createElement('img');
-  img.id = 'bookImg';
-  img.src = 'assets/jjkCover.jpeg';
-  img.alt = '';
-
-  // Append the img element to the bookImgContainer
-  bookImgContainer.appendChild(img);
-  book.append(bookImgContainer);
-
-  const bookInfo = document.createElement('div');
-  bookInfo.classList.add('bookInfo');
-
-  const title = document.createElement('div');
-  title.classList.add('boldText');
-  title.id = 'title';
-  title.textContent = 'Dummy book';
-
-  const author = document.createElement('div');
-  author.id = 'author';
-
-  const pages = document.createElement('div');
-  pages.classList.add('pages');
-
-  const read = document.createElement('div');
-  read.id = 'readStatus';
-
-  // Append title, author, pages, and read to bookInfo
-  bookInfo.appendChild(title);
-  bookInfo.appendChild(author);
-  bookInfo.appendChild(pages);
-  bookInfo.appendChild(read);
-
-  // Now, you have a structure where all elements are children of bookInfo
-
-  book.appendChild(bookInfo);
-
-  bookLibrary.append(book);
+function addToLibrary(title, author, pages, cover, readStatus) {
+  let book = new Book(title, author, pages, cover, readStatus);
+  myLibrary.push(book);
 }
-
-// createBook();
-// createBook();
-// createBook();
 
 
 function createBookElement(titleText, authorText, pagesText, imageCover, readStatusText) {
@@ -161,23 +112,29 @@ function createBookElement(titleText, authorText, pagesText, imageCover, readSta
 
   bookLibrary.append(book);
 
-  let bookItem = new Book(title, authorText, pagesText, imageCover, readStatusText);
-  myLibrary.push(bookItem);
+  // let bookItem = new Book(title, authorText, pagesText, imageCover, readStatusText);
+  // myLibrary.push(bookItem);
   
   return book;
 }
 
-createBookElement('JJK', 'Gege', '69', 'jjkCover', 'true');
-createBookElement('JJK', 'Gege', '69', 'jjkCover', 'true');
-createBookElement('JJK', 'Gege', '69', 'jjkCover', 'true');
-// createBookElement('jjk', 'gege', '78', 'true');
-// createBookElement('jjk', 'gege', '78', 'true');
-// createBookElement('jjk', 'gege', '78', 'true');
 
 function displayBooks(array) {
   array.forEach(function(item) {
-    console.log(item);
+    // console.log(item);
+    let book = item;
+
+    createBookElement(book.title, book.author, book.pages, book.cover, book.readStatus);
   });
 }
 
+addToLibrary('JJK', 'Gege', '69', 'jjkCover', 'true');
+addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', 'true');
+addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
+addToLibrary('JJK', 'Gege', '69', 'jjkCover', 'true');
+addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', 'true');
+addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
+
+
 displayBooks(myLibrary);
+console.log(myLibrary)
