@@ -1,3 +1,5 @@
+const myLibrary = [];
+
 function Book(title, author, pages, cover, readStatus) {
   this.title = title;
   this.author = author;
@@ -11,43 +13,41 @@ function Book(title, author, pages, cover, readStatus) {
 }
 
 
-// function displayBooks(array) {
-  
-// }
-
-const myLibrary = [];
-
-let jjk = new Book('JJK', 'Gege', '69', true);
-let lotr = new Book('Lord of the Rings', 'JRR Tolkien', '570', false);
-// console.log(jjk.getInfo());
-
-// addToLibrary(jjk);
-// addToLibrary(lotr);
-console.log(myLibrary);
-
-
-
-
-
-
 
 // RESPONSIVE SECTION--------------------------------
 const bookLibrary = document.querySelector('.bookLibrary');
 
-bookLibrary.addEventListener('mouseover', (e) => {
+bookLibrary.addEventListener('click', (e) => {
   const target = e.target;
+  const parentElement = target.parentNode;
+  const bookElement = target.closest('.book');
 
-  if (target.className === 'book') {
-    target.style.backgroundColor = 'lightgreen';
-  }
-});
-bookLibrary.addEventListener('mouseout', (e) => {
-  const target = e.target;
+  // bookElement.style.backgroundColor = 'salmon';
+  let imgSrc = bookElement.querySelector('.bookImgContainer').src;
+  let bookTitle = bookElement.querySelector('#title').textContent;
+  let bookAuthor = bookElement.querySelector('#author').textContent;
+  let bookPages = bookElement.querySelector('.pages').textContent;
+  let bookReadStatus = bookElement.querySelector('#readStatus').textContent;
 
-  if (target.className === 'book') {
-    target.style.backgroundColor = 'white';
-  }
+  console.log(`imgSrc: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
+
+  console.log(`book was clicked yo!. Target: ${target}, parent element: ${parentElement}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
