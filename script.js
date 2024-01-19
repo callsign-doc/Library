@@ -16,6 +16,7 @@ function Book(title, author, pages, cover, readStatus) {
 
 // RESPONSIVE SECTION--------------------------------
 const bookLibrary = document.querySelector('.bookLibrary');
+let selectedBookElement =
 
 bookLibrary.addEventListener('click', (e) => {
   const target = e.target;

@@ -15,6 +15,13 @@ body {
     margin-top: 3px;
     margin-bottom: 3px;
 }
+
+
+/* PSUEDO CLASSES */
+.bookLibrary .book:hover {
+    background-color: rgb(244, 244, 244);
+}
+
   
 
 /*MAIN CONTAINER-----------------  */
@@ -89,14 +96,21 @@ body {
 /* BOOK DISPLAY */
 .bookDisplay {
     display: flex;
+    flex-direction: column;
 
     padding: 20px;
 }
 .bookDisplay .book {
     flex: 1;
+
+    padding: 0px;
+    margin: 0px;
 }
 .bookDisplay .bookImgContainer {
     width: 100%;
     height: auto;
     aspect-ratio: 3/4;
+}
+#bookDisplayButtons {
+    display: flex;
 }
