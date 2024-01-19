@@ -20,14 +20,14 @@ const bookLibrary = document.querySelector('.bookLibrary');
 bookLibrary.addEventListener('click', (e) => {
   const target = e.target;
   const parentElement = target.parentNode;
-  const bookElement = target.closest('.book');
+  const selectedBookElement = target.closest('.book');
 
   // bookElement.style.backgroundColor = 'salmon';
-  let imgSrc = bookElement.querySelector('.bookImgContainer').src;
-  let bookTitle = bookElement.querySelector('#title').textContent;
-  let bookAuthor = bookElement.querySelector('#author').textContent;
-  let bookPages = bookElement.querySelector('.pages').textContent;
-  let bookReadStatus = bookElement.querySelector('#readStatus').textContent;
+  let imgSrc = selectedBookElement.querySelector('.bookImgContainer').src;
+  let bookTitle = selectedBookElement.querySelector('#title').textContent;
+  let bookAuthor = selectedBookElement.querySelector('#author').textContent;
+  let bookPages = selectedBookElement.querySelector('.pages').textContent;
+  let bookReadStatus = selectedBookElement.querySelector('#readStatus').textContent;
 
   console.log(`imgSrc: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
 

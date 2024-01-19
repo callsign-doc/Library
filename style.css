@@ -87,4 +87,16 @@ body {
 
 
 /* BOOK DISPLAY */
+.bookDisplay {
+    display: flex;
 
+    padding: 20px;
+}
+.bookDisplay .book {
+    flex: 1;
+}
+.bookDisplay .bookImgContainer {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+}
