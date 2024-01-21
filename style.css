@@ -116,8 +116,8 @@ body {
 
     /* margin-left: auto; */
 }
-#bookDisplayButtons button {
-
+.selectedBookContainer {
+    margin-bottom: 10px;
 }
 #addBookBtn {
     margin-right: auto;
