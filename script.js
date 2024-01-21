@@ -24,15 +24,16 @@ bookLibrary.addEventListener('click', (e) => {
   const selectedBookElement = target.closest('.book');
 
   // bookElement.style.backgroundColor = 'salmon';
+  const dataIndex = selectedBookElement.dataset.index;
   let imgSrc = selectedBookElement.querySelector('.bookImgContainer').src;
   let bookTitle = selectedBookElement.querySelector('#title').textContent;
   let bookAuthor = selectedBookElement.querySelector('#author').textContent;
   let bookPages = selectedBookElement.querySelector('.pages').textContent;
   let bookReadStatus = selectedBookElement.querySelector('#readStatus').textContent;
 
-  console.log(`imgSrc: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
+  console.log(`index: ${dataIndex}, imgSrc: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
 
-  console.log(`book was clicked yo!. Target: ${target}, parent element: ${parentElement}`);
+  // console.log(`book was clicked yo!. Target: ${target}, parent element: ${parentElement}`);
 });
 
 
@@ -45,10 +46,11 @@ function addToLibrary(title, author, pages, cover, readStatus) {
 }
 
 
-function createBookElement(titleText, authorText, pagesText, imageCover, readStatusText) {
+function createBookElement(titleText, authorText, pagesText, imageCover, readStatusText, index) {
   // Create the main book container
   const book = document.createElement('div');
   book.classList.add('book');
+  book.setAttribute('data-index', index);
 
   // Create the bookImgContainer element
   const bookImgContainer = document.createElement('div');
@@ -108,11 +110,14 @@ function createBookElement(titleText, authorText, pagesText, imageCover, readSta
 
 
 function displayBooks(array) {
+  let index = 0;
+
   array.forEach(function(item) {
     // console.log(item);
     let book = item;
 
-    createBookElement(book.title, book.author, book.pages, book.cover, book.readStatus);
+    createBookElement(book.title, book.author, book.pages, book.cover, book.readStatus, index);
+    index += 1;
   });
 }
 
