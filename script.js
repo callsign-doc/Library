@@ -17,7 +17,13 @@ function Book(title, author, pages, cover, readStatus) {
 // RESPONSIVE SECTION--------------------------------
 const bookLibrary = document.querySelector('.bookLibrary');
 const bookDisplayContainer = document.querySelector('.selectedBookContainer');
+
+const removeBookBtn = document.getElementById('removeBookBtn');
+
 let selectedBook;
+let selectedBookIndex;
+
+
 
 function createBookElement(book, index, destination) {
   // Create the main book container
@@ -101,14 +107,12 @@ function handleBookLibraryClick(e) {
   if (selectedBookElement) {
     const dataIndex = selectedBookElement.dataset.index;
     selectedBook = myLibrary[dataIndex];
+    selectedBookIndex = dataIndex;
+
     updateSelectedBookDisplay(selectedBook, dataIndex);
     console.log(`Selected book element: ${selectedBook.title}, index: ${dataIndex}`);
   }
 }
-
-
-
-
 
 
 function addToLibrary(title, author, pages, cover, readStatus) {
@@ -131,6 +135,16 @@ function displayBooks(array) {
 }
 
 
+// BTNS
+removeBookBtn.addEventListener('click', removeBook)
+
+function removeBook() {
+  myLibrary.splice(selectedBookIndex, 1);
+  displayBooks(myLibrary);
+}
+
+
+//
 addToLibrary('JJK', 'Gege', '69', 'jjkCover', 'true');
 addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', 'true');
 addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
