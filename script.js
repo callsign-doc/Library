@@ -90,27 +90,21 @@ function updateSelectedBookDisplay(book, index) {
 };
 
 
-bookLibrary.addEventListener('click', (e) => {
+// Event listener
+bookLibrary.addEventListener('click', handleBookLibraryClick);
+
+// Function to handle book click
+function handleBookLibraryClick(e) {
   const target = e.target;
-  // const parentElement = target.parentNode;
   const selectedBookElement = target.closest('.book');
 
-  // bookElement.style.backgroundColor = 'salmon';
-  const dataIndex = selectedBookElement.dataset.index;
-  selectedBook = myLibrary[dataIndex];
-
-  // let imgSrc = myLibrary[dataIndex].cover;
-  // let bookTitle = selectedBookElement.querySelector('#title').textContent;
-  // let bookAuthor = selectedBookElement.querySelector('#author').textContent;
-  // let bookPages = selectedBookElement.querySelector('.pages').textContent;
-  // let bookReadStatus = selectedBookElement.querySelector('#readStatus').textContent;
-
-  // console.log(`index: ${dataIndex}, imgCover: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
-
-  // console.log(`book was clicked yo!. Target: ${target}, parent element: ${parentElement}`);
-  updateSelectedBookDisplay(selectedBook, 69);
-  console.log(`Selected book element: ${selectedBook.title}`);
-});
+  if (selectedBookElement) {
+    const dataIndex = selectedBookElement.dataset.index;
+    selectedBook = myLibrary[dataIndex];
+    updateSelectedBookDisplay(selectedBook, dataIndex);
+    console.log(`Selected book element: ${selectedBook.title}, index: ${dataIndex}`);
+  }
+}
 
 
 
