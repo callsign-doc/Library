@@ -20,23 +20,21 @@ let selectedBookElement =
 
 bookLibrary.addEventListener('click', (e) => {
   const target = e.target;
-  const parentElement = target.parentNode;
+  // const parentElement = target.parentNode;
   const selectedBookElement = target.closest('.book');
 
   // bookElement.style.backgroundColor = 'salmon';
   const dataIndex = selectedBookElement.dataset.index;
-  let imgSrc = selectedBookElement.querySelector('.bookImgContainer').src;
+  let imgSrc = myLibrary[dataIndex].cover;
   let bookTitle = selectedBookElement.querySelector('#title').textContent;
   let bookAuthor = selectedBookElement.querySelector('#author').textContent;
   let bookPages = selectedBookElement.querySelector('.pages').textContent;
   let bookReadStatus = selectedBookElement.querySelector('#readStatus').textContent;
 
-  console.log(`index: ${dataIndex}, imgSrc: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
+  console.log(`index: ${dataIndex}, imgCover: ${imgSrc}, bookTitle: ${bookTitle}, bookAuthor: ${bookAuthor}, bookPages: ${bookPages}, bookReadStatus: ${bookReadStatus}`);
 
   // console.log(`book was clicked yo!. Target: ${target}, parent element: ${parentElement}`);
 });
-
-
 
 
 
@@ -46,7 +44,8 @@ function addToLibrary(title, author, pages, cover, readStatus) {
 }
 
 
-function createBookElement(titleText, authorText, pagesText, imageCover, readStatusText, index) {
+
+function createBookElement(titleText, authorText, pagesText, imageCover, readStatusText, index, destination) {
   // Create the main book container
   const book = document.createElement('div');
   book.classList.add('book');
@@ -100,7 +99,7 @@ function createBookElement(titleText, authorText, pagesText, imageCover, readSta
   book.appendChild(bookImgContainer);
   book.appendChild(bookInfo);
 
-  bookLibrary.append(book);
+  destination.append(book);
 
   // let bookItem = new Book(title, authorText, pagesText, imageCover, readStatusText);
   // myLibrary.push(bookItem);
@@ -116,7 +115,7 @@ function displayBooks(array) {
     // console.log(item);
     let book = item;
 
-    createBookElement(book.title, book.author, book.pages, book.cover, book.readStatus, index);
+    createBookElement(book.title, book.author, book.pages, book.cover, book.readStatus, index, bookLibrary);
     index += 1;
   });
 }
