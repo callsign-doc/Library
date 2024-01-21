@@ -140,6 +140,11 @@ removeBookBtn.addEventListener('click', removeBook)
 
 function removeBook() {
   myLibrary.splice(selectedBookIndex, 1);
+
+  while (bookLibrary.firstChild) {
+    bookLibrary.removeChild(bookLibrary.firstChild);
+  }
+  
   displayBooks(myLibrary);
 }
 
