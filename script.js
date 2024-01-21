@@ -39,19 +39,6 @@ bookLibrary.addEventListener('click', (e) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function addToLibrary(title, author, pages, cover, readStatus) {
   let book = new Book(title, author, pages, cover, readStatus);
   myLibrary.push(book);
@@ -129,6 +116,7 @@ function displayBooks(array) {
   });
 }
 
+
 addToLibrary('JJK', 'Gege', '69', 'jjkCover', 'true');
 addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', 'true');
 addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
@@ -138,4 +126,5 @@ addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
 
 
 displayBooks(myLibrary);
-console.log(myLibrary)
+console.log(myLibrary);
+

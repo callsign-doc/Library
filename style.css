@@ -113,4 +113,9 @@ body {
 }
 #bookDisplayButtons {
     display: flex;
+
+    margin-left: auto;
+}
+#bookDisplayButtons button {
+    margin-left: 10px;
 }
