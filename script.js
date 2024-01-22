@@ -71,7 +71,7 @@ function createBookElement(book, index, destination) {
   // Create the readStatus element
   const readStatus = document.createElement('div');
   readStatus.id = 'readStatus';
-  readStatus.textContent = book.readStatus;
+  readStatus.textContent = book.readStatus ? 'Book Read' : 'Book Unread';
 
   // Append title, author, pages, and readStatus to bookInfo
   bookInfo.appendChild(title);
@@ -162,12 +162,13 @@ function removeBook() {
 
 
 //
-addToLibrary('JJK', 'Gege', '69', 'jjkCover', 'true');
-addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', 'true');
-addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
-addToLibrary('JJK', 'Gege', '69', 'jjkCover', 'true');
-addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', 'true');
-addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', 'true');
+addToLibrary('JJK', 'Gege', '69', 'jjkCover', true);
+addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', false);
+addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', true);
+addToLibrary('JJK', 'Gege', '69', 'jjkCover', true);
+addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', true);
+addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', true);
+
 
 
 displayBooks(myLibrary);
