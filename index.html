@@ -65,11 +65,34 @@
         </div>
 
         <dialog id="dialogOverlay" class="dialog-overlay">
-            <div class="dialog-box">
-              <h2>Add a New Book</h2>
-              <!-- Add your form or content here for adding a book -->
-              <button class="close-button">Close</button>
-            </div>
+            <h2>Add a New Book</h2>
+
+            <form id="addBookForm" action="">
+                <p>Don't knock on my myp dawg!</p>
+                <input type="text" class="inputTitleForm" placeholder="Book title..." required>
+                <input type="text" class="inputAuthorForm" placeholder="Author..." required>
+                <input type="number" class="inputPagesForm" placeholder="Number of pages..." required>
+                <input type="text" class="inputCoverForm" placeholder="Cover URL..." required>
+
+                <div class="readStatusContainer">
+                    <label>
+                        <input type="radio" name="readStatus" id="readStatusReadForm" class="inputReadStatusReadForm" checked>
+                        Read
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="readStatus" id="readStatusUnreadForm" class="inputReadStatusUnreadForm">
+                        Unread
+                    </label>
+                </div>
+                
+                <div class="formBtnContainer">
+                    <button class="close-button">Close</button>
+                    <button type="button" id="addToLibraryBtn">Add book</button>
+                </div>
+            </form>
+
+            
         </dialog>
     </div>
 
