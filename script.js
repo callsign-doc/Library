@@ -17,8 +17,11 @@ function Book(title, author, pages, cover, readStatus) {
 // RESPONSIVE SECTION--------------------------------
 const bookLibrary = document.querySelector('.bookLibrary');
 const bookDisplayContainer = document.querySelector('.selectedBookContainer');
+const addBookDialogBox = document.querySelector('#dialogOverlay');
 
 const removeBookBtn = document.getElementById('removeBookBtn');
+const addBookBtn = document.querySelector('#addBookBtn');
+const closeDialogBoxBtn = document.querySelector('.close-button');
 
 let selectedBook;
 let selectedBookIndex;
@@ -137,6 +140,15 @@ function displayBooks(array) {
 
 // BTNS
 removeBookBtn.addEventListener('click', removeBook)
+
+addBookBtn.addEventListener('click', () => {
+  addBookDialogBox.showModal();
+  console.log('my name jeff');
+});
+closeDialogBoxBtn.addEventListener('click', ()=> {
+  addBookDialogBox.close();
+})
+
 
 function removeBook() {
   myLibrary.splice(selectedBookIndex, 1);
