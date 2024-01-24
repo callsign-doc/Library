@@ -18,6 +18,7 @@ function Book(title, author, pages, cover, readStatus) {
 const bookLibrary = document.querySelector('.bookLibrary');
 const bookDisplayContainer = document.querySelector('.selectedBookContainer');
 const addBookDialogBox = document.querySelector('#dialogOverlay');
+const addBookForm = document.querySelector('#addBookForm');
 
 const removeBookBtn = document.getElementById('removeBookBtn');
 const addBookBtn = document.querySelector('#addBookBtn');
@@ -136,6 +137,17 @@ function displayBooks(array) {
     index += 1;
   });
 }
+
+addBookForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  let bookForm = event.target.closest('#addBookForm');
+
+  let title = bookForm.querySelector('.inputTitleForm').value;
+  let authorForm = bookForm.querySelector('.inputAuthorForm').value;
+
+  console.log('somethign was submitted yo');
+  console.log(`title: ${title}, author: ${authorForm}`);
+})
 
 
 // BTNS
