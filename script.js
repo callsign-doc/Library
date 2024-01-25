@@ -13,7 +13,6 @@ function Book(title, author, pages, cover, readStatus) {
 }
 
 
-
 // RESPONSIVE SECTION--------------------------------
 const bookLibrary = document.querySelector('.bookLibrary');
 const bookDisplayContainer = document.querySelector('.selectedBookContainer');
@@ -138,15 +137,21 @@ function displayBooks(array) {
   });
 }
 
+
 addBookForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   let bookForm = event.target.closest('#addBookForm');
+  let readStatus = document.getElementById('readStatusReadForm');
+
 
   let title = bookForm.querySelector('.inputTitleForm').value;
   let authorForm = bookForm.querySelector('.inputAuthorForm').value;
 
   console.log('somethign was submitted yo');
   console.log(`title: ${title}, author: ${authorForm}`);
+
+  bookForm.reset();
+  readStatus.checked = true;
 })
 
 
