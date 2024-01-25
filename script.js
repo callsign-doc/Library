@@ -105,6 +105,14 @@ function createBookElement(book, index, destination) {
 
 function updateSelectedBookDisplay(book, index) {
   const bookToRemove = document.querySelector('.bookDisplay .book');
+  const markAsReadBtn = document.querySelector('#readStatusBtn');
+
+  if (book.readStatus === false) {
+    markAsReadBtn.textContent = 'Mark Read';
+  } else {
+    markAsReadBtn.textContent = "Mark Unread";
+  }
+
   bookToRemove.remove();
 
   createBookElement(book, index, bookDisplayContainer);
