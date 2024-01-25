@@ -34,6 +34,8 @@ const addBookForm = document.querySelector('#addBookForm');
 const removeBookBtn = document.getElementById('removeBookBtn');
 const addBookBtn = document.querySelector('#addBookBtn');
 const closeDialogBoxBtn = document.querySelector('.close-button');
+const markAsReadBtn = document.querySelector('#readStatusBtn');
+
 
 let selectedBook;
 let selectedBookIndex;
@@ -138,8 +140,6 @@ function handleBookLibraryClick(e) {
 }
 
 
-
-
 function displayBooks(array) {
   let index = 0;
 
@@ -189,12 +189,25 @@ closeDialogBoxBtn.addEventListener('click', ()=> {
   addBookDialogBox.close();
 })
 
+markAsReadBtn.addEventListener('click', (event) => {
+  // const selectedBook = document.querySelector('.bookDisplay .book');  
+
+  // selectedBook.readStatus = !selectedBook.readStatus;
+  selectedBook.readStatus = !selectedBook.readStatus;
+  updateSelectedBookDisplay(selectedBook, selectedBookIndex);
+
+  clearBookLibrary();
+  displayBooks(myLibrary);
+});
 
 function removeBook() {
   myLibrary.splice(selectedBookIndex, 1);
   clearBookLibrary();
   displayBooks(myLibrary);
 }
+
+
+
 
 
 //
