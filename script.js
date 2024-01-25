@@ -12,6 +12,18 @@ function Book(title, author, pages, cover, readStatus) {
   }
 }
 
+function addToLibrary(title, author, pages, cover, readStatus) {
+  let book = new Book(title, author, pages, cover, readStatus);
+  myLibrary.push(book);
+}
+
+function clearBookLibrary() {
+  while (bookLibrary.firstChild) {
+      bookLibrary.removeChild(bookLibrary.firstChild);
+  }
+}
+
+
 
 // RESPONSIVE SECTION--------------------------------
 const bookLibrary = document.querySelector('.bookLibrary');
@@ -118,11 +130,6 @@ function handleBookLibraryClick(e) {
 }
 
 
-function addToLibrary(title, author, pages, cover, readStatus) {
-  let book = new Book(title, author, pages, cover, readStatus);
-  myLibrary.push(book);
-}
-
 
 
 function displayBooks(array) {
@@ -138,6 +145,7 @@ function displayBooks(array) {
 }
 
 
+// Add new book form 
 addBookForm.addEventListener('submit', (event) => {
   // event.preventDefault();
   let bookForm = event.target.closest('#addBookForm');
@@ -145,10 +153,17 @@ addBookForm.addEventListener('submit', (event) => {
 
 
   let title = bookForm.querySelector('.inputTitleForm').value;
-  let authorForm = bookForm.querySelector('.inputAuthorForm').value;
+  let author = bookForm.querySelector('.inputAuthorForm').value;
+  let pages = bookForm.querySelector('.inputPagesForm').value;
+  let cover = 'catCover';
+  let isReadStatusSelected = readStatus.checked;
 
   console.log('somethign was submitted yo');
-  console.log(`title: ${title}, author: ${authorForm}`);
+  console.log(`title: ${title}, author: ${author}, pages: ${pages}, cover: ${cover}`);
+
+  addToLibrary(title, author, pages, cover, isReadStatusSelected);
+  clearBookLibrary();
+  displayBooks(myLibrary);
 
   bookForm.reset();
   readStatus.checked = true;
@@ -169,11 +184,7 @@ closeDialogBoxBtn.addEventListener('click', ()=> {
 
 function removeBook() {
   myLibrary.splice(selectedBookIndex, 1);
-
-  while (bookLibrary.firstChild) {
-    bookLibrary.removeChild(bookLibrary.firstChild);
-  }
-  
+  clearBookLibrary();
   displayBooks(myLibrary);
 }
 
