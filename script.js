@@ -1,4 +1,6 @@
 const myLibrary = [];
+let selectedBook;
+let selectedBookIndex;
 
 function Book(title, author, pages, cover, readStatus) {
   this.title = title;
@@ -37,8 +39,7 @@ const closeDialogBoxBtn = document.querySelector('.close-button');
 const markAsReadBtn = document.querySelector('#readStatusBtn');
 
 
-let selectedBook;
-let selectedBookIndex;
+
 
 
 
@@ -209,8 +210,7 @@ function removeBook() {
 
 
 
-
-//
+//STARTER BOOKS
 addToLibrary('JJK', 'Gege', '69', 'jjkCover', true);
 addToLibrary('Vagabond 69', 'Takehiko Inoue', '420', 'vagabond', false);
 addToLibrary('Tokyo Ghoul', 'Sui Ishida', '12', 'tokyoGhoul', true);
