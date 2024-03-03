@@ -2,6 +2,7 @@ const myLibrary = [];
 let selectedBook;
 let selectedBookIndex;
 
+
 function Book(title, author, pages, cover, readStatus) {
   this.title = title;
   this.author = author;
@@ -10,6 +11,20 @@ function Book(title, author, pages, cover, readStatus) {
   this.readStatus = typeof readStatus === 'boolean' ? readStatus : false;
 
   this.getInfo = function() {
+    return `${this.title} by ${this.author}. ${this.pages} short. Read: ${this.readStatus}`;
+  }
+}
+
+class Book2 {
+  constructor(title, author, pages, cover, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.cover = cover;
+    this.readStatus = typeof readStatus === 'boolean' ? readStatus : false;
+  }
+
+  getInfo = () => {
     return `${this.title} by ${this.author}. ${this.pages} short. Read: ${this.readStatus}`;
   }
 }
