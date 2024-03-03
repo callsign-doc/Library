@@ -3,19 +3,19 @@ let selectedBook;
 let selectedBookIndex;
 
 
-function Book(title, author, pages, cover, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.cover = cover;
-  this.readStatus = typeof readStatus === 'boolean' ? readStatus : false;
+// function Book2(title, author, pages, cover, readStatus) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.cover = cover;
+//   this.readStatus = typeof readStatus === 'boolean' ? readStatus : false;
 
-  this.getInfo = function() {
-    return `${this.title} by ${this.author}. ${this.pages} short. Read: ${this.readStatus}`;
-  }
-}
+//   this.getInfo = function() {
+//     return `${this.title} by ${this.author}. ${this.pages} short. Read: ${this.readStatus}`;
+//   }
+// }
 
-class Book2 {
+class Book {
   constructor(title, author, pages, cover, readStatus) {
     this.title = title;
     this.author = author;
